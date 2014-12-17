@@ -4,10 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.*;
 import java.util.List;
 
 public class Game2048 extends JPanel {
@@ -301,7 +298,7 @@ public class Game2048 extends JPanel {
 
   }
 
-  private static int offsetCoors(int arg) {
+    private static int offsetCoors(int arg) {
     return arg * (TILES_MARGIN + TILE_SIZE) + TILES_MARGIN;
   }
 
