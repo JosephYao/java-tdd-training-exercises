@@ -4,8 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
 import java.util.List;
 
 public class Game2048 extends JPanel {
@@ -269,7 +268,7 @@ public class Game2048 extends JPanel {
     final Font font = new Font(FONT_NAME, Font.BOLD, size);
     g.setFont(font);
 
-    String s = String.valueOf(value);
+    String s = tile.textToDisplay();
     final FontMetrics fm = getFontMetrics(font);
 
     final int w = fm.stringWidth(s);
@@ -301,7 +300,7 @@ public class Game2048 extends JPanel {
 
   }
 
-  private static int offsetCoors(int arg) {
+    private static int offsetCoors(int arg) {
     return arg * (TILES_MARGIN + TILE_SIZE) + TILES_MARGIN;
   }
 
@@ -340,6 +339,17 @@ public class Game2048 extends JPanel {
       }
       return new Color(0xcdc1b4);
     }
+
+      public String textToDisplay() {
+          if (value != 0)
+              return String.valueOf(Character.toChars('A' + log2() - 1));
+
+          return "";
+      }
+
+      private int log2() {
+          return (int) (Math.log(value) / Math.log(2));
+      }
   }
 
   public static void main(String[] args) {
